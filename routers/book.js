@@ -56,19 +56,19 @@ routerbook.get("/books", async (req, res) => {
     res.send({ error: error.message });
   }
 });
-routerbook.get("/books/:id", async (req, res) => {
-  try {
-    const getID = await booktmodel.findById(req.params.id);
-    if (!getID) {
-      res.status(404).json({ message: "Product not found" });
-    } else {
-      res.json(getID);
-    }
-  } catch (error) {
-    console.error("Error retrieving product:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
+// bookRouter.get("/booking/:id", async (req, res) => {
+//   try {
+//     const getID = await BookModel.findById(req.params.id);
+//     if (!getID) {
+//       res.status(404).json({ message: "Product not found" });
+//     } else {
+//       res.json(getID);
+//     }
+//   } catch (error) {
+//     console.error("Error retrieving product:", error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// });
 routerbook.put("/books/:id", async (req, res) => {
   const body = req.body;
   const id = req.params.id;

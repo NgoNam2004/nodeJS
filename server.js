@@ -4,8 +4,9 @@ const port = 3000;
 app.use(express.json());
 import router from "./routers/product.js";
 import connects from "./connect/database.js";
-import authrouter from "./routers/auth.js";
 import routerbook from "./routers/book.js";
+import routerpost from "./routers/posts.js";
+import authrouter from "./routers/auth.js";
 // {
 // // const products = [
 // //   {
@@ -192,8 +193,10 @@ import routerbook from "./routers/book.js";
 /**buoi 6 */
 
 app.use("/api", router);
-app.use("/auth", authrouter);
 app.use("/book", routerbook);
+app.use("/post", routerpost);
+app.use("/auth", authrouter);
+
 app.listen(port, async () => {
   await connects();
   console.log(`Endpoint: http://localhost:${port}`);
